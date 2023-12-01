@@ -226,9 +226,10 @@ setInterval(function() {
                 for (let d = 0; d < app.consoleList[i].items.length; d++) {
                    ItemsPrice += Number(app.consoleList[i].items[d].price)
                 }
-                let allPrice = new Intl.NumberFormat("fa").format(Math.floor(hour * app.priceList[app.consoleList[i].consoleType][Number(app.consoleList[i].count)]) + ItemsPrice)
+                let selectedConsole = app.priceList[app.consoleList[i].consoleType]
+                let allPrice = new Intl.NumberFormat("fa").format(Math.floor(hour * selectedConsole[Number(app.consoleList[i].count)]) + ItemsPrice)
               
-                app.consoleList[i].gamePrice = Math.floor(hour * app.priceList[app.consoleList[i].consoleType][Number(app.consoleList[i].count)])
+                app.consoleList[i].gamePrice = Math.floor(hour * selectedConsole[Number(app.consoleList[i].count)])
                 app.consoleList[i].price = allPrice
                 localStorage.setItem(i, JSON.stringify(app.consoleList[i]))
             }
