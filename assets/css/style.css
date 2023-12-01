@@ -205,7 +205,7 @@ html {
     padding: 5px;
     padding-top: 50px;
     gap: 10px;
-    height: 87%;
+    height: 100%;
     overflow-y: scroll;
 }
 .closeicon{
