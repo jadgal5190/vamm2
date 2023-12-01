@@ -10,10 +10,10 @@ var app = new Vue({
             6: 80000,
         },
         consoleList: [
-            { id: 0, name: "کنسول 1", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[{name:"test", price:1000}] },
-            { id: 1, name: "کنسول 2", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[{name:"test", price:1000}] },
-            { id: 2, name: "کنسول 3", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[{name:"test", price:1000}] },
-            { id: 3, name: "کنسول 4", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[{name:"test", price:1000}] },
+            { id: 0, name: "کنسول 1", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[{name:"test", price:1000}], consoleType:"ps5"},
+            { id: 1, name: "کنسول 2", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[{name:"test", price:1000}], consoleType:"ps4"},
+            { id: 2, name: "کنسول 3", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[{name:"test", price:1000}], consoleType:"ps4"},
+            { id: 3, name: "کنسول 4", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[{name:"test", price:1000}], consoleType:"ps4"},
         ],
         loglist:[],
         addItemModal:{
