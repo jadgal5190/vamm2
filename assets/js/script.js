@@ -3,17 +3,26 @@ var app = new Vue({
     data: {
         showlogs:false,
         priceList: {
-            1: 30000,
-            2: 40000,
-            4: 60000,
-            5: 70000,
-            6: 80000,
+            "ps5":{
+                1: 50000,
+                2: 60000,
+                4: 80000,
+                5: 90000,
+                6: 100000,
+            },
+            "ps4":{
+                1: 30000,
+                2: 40000,
+                4: 60000,
+                5: 70000,
+                6: 90000,
+            }
         },
         consoleList: [
-            { id: 0, name: "کنسول 1", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[{name:"test", price:1000}], consoleType:"ps5"},
-            { id: 1, name: "کنسول 2", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[{name:"test", price:1000}], consoleType:"ps4"},
-            { id: 2, name: "کنسول 3", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[{name:"test", price:1000}], consoleType:"ps4"},
-            { id: 3, name: "کنسول 4", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[{name:"test", price:1000}], consoleType:"ps4"},
+            { id: 0, name: "کنسول 1", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[], consoleType:"ps5"},
+            { id: 1, name: "کنسول 2", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[], consoleType:"ps4"},
+            { id: 2, name: "کنسول 3", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[], consoleType:"ps4"},
+            { id: 3, name: "کنسول 4", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[], consoleType:"ps4"},
         ],
         loglist:[],
         addItemModal:{
@@ -215,9 +224,9 @@ setInterval(function() {
                 for (let d = 0; d < app.consoleList[i].items.length; d++) {
                    ItemsPrice += Number(app.consoleList[i].items[d].price)
                 }
-                let allPrice = new Intl.NumberFormat("fa").format(Math.floor(hour * app.priceList[Number(app.consoleList[i].count)]) + ItemsPrice)
+                let allPrice = new Intl.NumberFormat("fa").format(Math.floor(hour * app.priceList[app.consoleList[i].consoleType][Number(app.consoleList[i].count)]) + ItemsPrice)
               
-                app.consoleList[i].gamePrice = Math.floor(hour * app.priceList[Number(app.consoleList[i].count)])
+                app.consoleList[i].gamePrice = Math.floor(hour * app.priceList[app.consoleList[i].consoleType][Number(app.consoleList[i].count)])
                 app.consoleList[i].price = allPrice
                 localStorage.setItem(i, JSON.stringify(app.consoleList[i]))
             }
