@@ -49,7 +49,7 @@
         <button class="btn btn--secondary" @click="addItemInConsole(console.id)">افزودن</button>
     </div>
         </div>
-        <div class="consoleList" v-show="!addItemModal.toggle || !showlogs">
+        <div class="consoleList" v-show="!addItemModal.toggle && !showlogs">
             <div class="console" v-for="(console, index) in consoleList">
                 <div class="chead">
                     <!-- <button class="btn btn--mini" @click="deleteConsole(console.id)">X</button> -->
