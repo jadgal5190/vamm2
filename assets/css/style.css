@@ -258,6 +258,7 @@ html {
     gap: 10px;
     position: absolute;
     bottom: 20px;
+    z-index: 111111111111111;
 }
 .form-control::placeholder{
     color: rgba(255, 255, 255, 0.۵);
