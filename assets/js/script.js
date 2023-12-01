@@ -91,7 +91,7 @@ var app = new Vue({
                     if (app.consoleList[i].id == id && app.consoleList[i].toggleTimer) {
                         app.consoleList[i].items.push({name:"بازی "+app.consoleList[i].count+"نفره", price:Number(fixNumbers(app.consoleList[i].price))})
                         app.consoleList[i].startTime = 0
-                        // app.consoleList[i].timerprice = 0
+                        app.consoleList[i].timerprice = 0
                         app.consoleList[i].toggleTimer = false
                         localStorage.setItem(i, JSON.stringify(app.consoleList[i]))
                         setTimeout(() => {
