@@ -89,9 +89,9 @@ var app = new Vue({
             return (id) => {
                 for (let i = 0; i < app.consoleList.length; i++) {
                     if (app.consoleList[i].id == id && app.consoleList[i].toggleTimer) {
+                        app.consoleList[i].items.push({name:"بازی "+app.consoleList[i].count+"نفره", price:new Intl.NumberFormat("fa").format(app.consoleList[i].price)})
                         app.consoleList[i].startTime = Math.floor(new Date().getTime() / 1000)
                         app.consoleList[i].timerprice = 0
-                        app.consoleList[i].items.push({name:"بازی "+app.consoleList[i].count+"نفره", price:new Intl.NumberFormat("fa").format(app.consoleList[i].price)})
                         localStorage.setItem(i, JSON.stringify(app.consoleList[i]))
                         setTimeout(() => {
                         app.$forceUpdate()
