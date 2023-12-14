@@ -2,6 +2,7 @@ var app = new Vue({
     el: "#app",
     data: {
         showlogs:false,
+        showDebtors:false,
         priceList: {
             "ps5":{
                 1: 50000,
@@ -27,6 +28,7 @@ var app = new Vue({
             { id: 3, name: "کنسول 4", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[], consoleType:"ps4"},
         ],
         loglist:[],
+        debtorlist:[],
         addItemModal:{
             name:"",
             price:"",
@@ -150,12 +152,28 @@ var app = new Vue({
                 localStorage.setItem('logs', JSON.stringify(app.loglist))
             }
         },
+        deldebtor: function() {
+            return (index) => {
+                app.debtorlist.splice(index, 1)
+                localStorage.setItem('debtorlist', JSON.stringify(app.debtorlist))
+            }
+        },
         addItem: function() {
             return (id) => {
                 for (let i = 0; i < app.consoleList.length; i++) {
                     if (app.consoleList[i].id == id) {
                         app.addItemModal.selectedConsoleId = i
                         app.addItemModal.toggle = true
+                    }
+                }
+            }
+        },
+        adddebtor: function() {
+            return (id) => {
+                for (let i = 0; i < app.consoleList.length; i++) {
+                    if (app.consoleList[i].id == id) {
+                        app.debtorlist.push(app.consoleList[i])
+                        localStorage.setItem('debtorlist', JSON.stringify(app.debtorlist))
                     }
                 }
             }
