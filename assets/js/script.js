@@ -177,12 +177,14 @@ var app = new Vue({
                     if (app.consoleList[i].id == app.nameID) {
                         app.consoleList[i].Ownername = app.nameValue
                         app.consoleList[i].date =   new Date().toLocaleString("en-US")
-                        app.debtorlist.push(app.consoleList[i])
-                        localStorage.setItem('debtorlist', JSON.stringify(app.debtorlist))
-                        app.nameModal = false
-                        app.nameValue = ''
-                        app.nameID = 0
-                        app.cleardata(app.nameID)
+                 setTimeout(() => {
+                    app.debtorlist.push(app.consoleList[i])
+                    localStorage.setItem('debtorlist', JSON.stringify(app.debtorlist))
+                    app.nameModal = false
+                    app.nameValue = ''
+                    app.nameID = 0
+                    app.cleardata(app.nameID)
+                 }, 500);
                     }
                 }
             }
