@@ -175,8 +175,11 @@ var app = new Vue({
             return () => {
                 for (let i = 0; i < app.consoleList.length; i++) {
                     if (app.consoleList[i].id == app.nameID) {
+                        app.consoleList[i].name = app.nameValue
                         app.debtorlist.push(app.consoleList[i])
                         localStorage.setItem('debtorlist', JSON.stringify(app.debtorlist))
+                        app.nameModal = false
+                        app.cleardata(app.nameID)
                     }
                 }
             }
