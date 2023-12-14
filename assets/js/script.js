@@ -183,7 +183,7 @@ var app = new Vue({
                     app.nameModal = false
                     app.nameValue = ''
                     // app.nameID = 0
-                    // app.cleardata(app.nameID)
+                    app.cleardata(app.nameID)
                  }, 500);
                     }
                 }
