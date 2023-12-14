@@ -3,6 +3,9 @@ var app = new Vue({
     data: {
         showlogs:false,
         showDebtors:false,
+        nameModal:false,
+        nameValue:"",
+        nameID:0,
         priceList: {
             "ps5":{
                 1: 60000,
@@ -169,11 +172,21 @@ var app = new Vue({
             }
         },
         adddebtor: function() {
+            return () => {
+                for (let i = 0; i < app.consoleList.length; i++) {
+                    if (app.consoleList[i].id == app.nameID) {
+                        app.debtorlist.push(app.consoleList[i])
+                        localStorage.setItem('debtorlist', JSON.stringify(app.debtorlist))
+                    }
+                }
+            }
+        },
+        showNameModal: function() {
             return (id) => {
                 for (let i = 0; i < app.consoleList.length; i++) {
                     if (app.consoleList[i].id == id) {
-                        app.debtorlist.push(app.consoleList[i])
-                        localStorage.setItem('debtorlist', JSON.stringify(app.debtorlist))
+                        app.nameModal = true
+                        app.nameID = app.consoleList[i].id
                     }
                 }
             }
