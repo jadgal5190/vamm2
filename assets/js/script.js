@@ -176,14 +176,13 @@ var app = new Vue({
                 for (let i = 0; i < app.consoleList.length; i++) {
                     if (app.consoleList[i].id == app.nameID) {
                         app.consoleList[i].Ownername = app.nameValue
-                        app.consoleList[i].date =   new Date().toLocaleString("en-US")
                  setTimeout(() => {
-                    app.debtorlist.push(app.consoleList[i])
+                    app.debtorlist.push({name:app.consoleList[i].Ownername, price:app.consoleList[i].price, date:new Date().toLocaleString("en-US")})
                     localStorage.setItem('debtorlist', JSON.stringify(app.debtorlist))
                     app.nameModal = false
                     app.nameValue = ''
-                    app.nameID = 0
-                    app.cleardata(app.nameID)
+                    // app.nameID = 0
+                    // app.cleardata(app.nameID)
                  }, 500);
                     }
                 }
