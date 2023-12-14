@@ -177,7 +177,8 @@ var app = new Vue({
                     if (app.consoleList[i].id == app.nameID) {
                         app.consoleList[i].Ownername = app.nameValue
                  setTimeout(() => {
-                    app.debtorlist.push({name:app.consoleList[i].Ownername, price:app.consoleList[i].price, date:new Date().toLocaleString("en-US")})
+                    let now = new Date().toLocaleString("en-US")
+                    app.debtorlist.push({name:app.consoleList[i].Ownername, price:app.consoleList[i].price, date:now})
                     localStorage.setItem('debtorlist', JSON.stringify(app.debtorlist))
                     app.nameModal = false
                     app.nameValue = ''
