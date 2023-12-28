@@ -298,6 +298,7 @@ function showNotification(i) {
         window.open('https://game-timer-five.vercel.app');
       };
     app.consoleList[i].priceMax = 0
+    alert(1)
   }
 
 setInterval(function() {
