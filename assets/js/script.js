@@ -310,10 +310,10 @@ setInterval(function() {
                 app.consoleList[i].gamePrice = Math.floor(hour * selectedConsole[Number(app.consoleList[i].count)])
                 app.consoleList[i].price = allPrice
                 if (app.consoleList[i].gamePrice >= app.consoleList[i].priceMax && app.consoleList[i].priceMax) {
-                    n = new Notification( "Hello", {
-                        body: "This is a test", 
-                        icon : "star.ico"
-                    });
+                    // n = new Notification( "Hello", {
+                    //     body: "This is a test", 
+                    //     icon : "star.ico"
+                    // });
 
                 }
                 localStorage.setItem(i, JSON.stringify(app.consoleList[i]))
