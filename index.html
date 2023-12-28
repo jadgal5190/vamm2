@@ -75,8 +75,9 @@
             <div class="console" v-for="(console, index) in consoleList">
                 <div class="chead">
                     <!-- <button class="btn btn--mini" @click="deleteConsole(console.id)">X</button> -->
-                    <span class="cname">{{ console.name }}</span>
                     <input type="number" v-model="console.priceMax" placeholder="تنظیم مبلغ">
+                    <span class="cname">{{ console.name }}</span>
+              
                 </div>
                 <div class="timer">
                     <h1 class="time">{{ console.timer.h }}:{{ console.timer.m }}:{{ console.timer.s }}</h1>
