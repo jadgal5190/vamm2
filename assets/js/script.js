@@ -310,9 +310,10 @@ setInterval(function() {
                 app.consoleList[i].gamePrice = Math.floor(hour * selectedConsole[Number(app.consoleList[i].count)])
                 app.consoleList[i].price = allPrice
                 if (app.consoleList[i].gamePrice >= app.consoleList[i].priceMax && app.consoleList[i].priceMax) {
-                    const notification = new Notification("Hi there!");
-                    app.consoleList[0].priceMax = 1000
-
+                    navigator.serviceWorker.register('sw.js');
+                    navigator.serviceWorker.ready.then(function(registration) {
+                        registration.showNotification('Notification with ServiceWorker');
+                      });
                 }
                 localStorage.setItem(i, JSON.stringify(app.consoleList[i]))
             }
