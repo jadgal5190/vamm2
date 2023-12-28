@@ -287,6 +287,7 @@ if (!app.not) {
 }
 function notifyMe() {
     const notification = new Notification("Hi there!");
+    app.consoleList[0].priceMax = 1000
   }
 
 setInterval(function() {
