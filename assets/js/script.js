@@ -285,20 +285,19 @@ if (!app.not) {
         app.not = true
         localStorage.setItem("not",app.not)
 }
-function showNotification(i) {
-    alert(1)
-      const options = {
-        body: 'بازیش تموم شد بیا',
-        dir: 'ltr',
-        vibrate: true
-      };
-      const notification = new Notification('Notification', options);
-
-      notification.onclick = function () {
-        window.open('https://game-timer-five.vercel.app');
-      };
-    app.consoleList[i].priceMax = 0
-  }
+function showNotification() {
+    //if(document.visibilityState === "visible") {
+      //  return;
+    //   }
+    let title = "JavaScript Jeep";
+    let icon = 'https://homepages.cae.wisc.edu/~ece533/images/airplane.png';
+    let body = "Message to be displayed";
+    var notification = new Notification('Title', { body, icon });
+    notification.onclick = () => {
+         notification.close();
+         window.parent.focus();
+    }
+ }
 
 setInterval(function() {
     for (let i = 0; i < app.consoleList.length; i++) {
