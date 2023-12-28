@@ -286,7 +286,7 @@ if (!app.not) {
         localStorage.setItem("not",app.not)
 }
 function showNotification(i) {
-
+    Notification.requestPermission();
       const options = {
         body: 'بازیش تموم شد بیا',
         dir: 'ltr',
