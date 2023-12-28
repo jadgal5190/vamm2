@@ -6,6 +6,13 @@ var app = new Vue({
         nameModal:false,
         nameValue:"",
         nameID:0,
+        items:{
+         "water":{price:5000, label:"آب معدنی"},
+         "jack":{price:60000, label:"انرزی زا جک"},
+         "smoke":{price:5000, label:"سیگار ۱"},
+         "smoke2":{price:10000, label:"سیگار 2"},
+
+    },
         priceList: {
             "ps5":{
                 1: 60000,
@@ -25,10 +32,10 @@ var app = new Vue({
             }
         },
         consoleList: [
-            { id: 0, name: "کنسول 1", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[], consoleType:"ps5"},
-            { id: 1, name: "کنسول 2", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[], consoleType:"ps4"},
-            { id: 2, name: "کنسول 3", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[], consoleType:"ps4"},
-            { id: 3, name: "کنسول 4", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[], consoleType:"ps4"},
+            { id: 0, name: "کنسول 1", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[], consoleType:"ps5", priceMax:0},
+            { id: 1, name: "کنسول 2", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[], consoleType:"ps4", priceMax:0},
+            { id: 2, name: "کنسول 3", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[], consoleType:"ps4", priceMax:0},
+            { id: 3, name: "کنسول 4", count: 2, timer: { h: '00', m: '00', s: '00' }, price: 0, toggleTimer: false, startTime: 0, timerprice: 0, pause: false, pauseTimer: 0, date:"", gamePrice:0, items:[], consoleType:"ps4", priceMax:0},
         ],
         loglist:[],
         debtorlist:[],
@@ -57,6 +64,11 @@ var app = new Vue({
                     // setTimeout(() => {
                     //     app.$forceUpdate()
                     //     }, 500);
+            }
+        },
+        changeItem: function() {
+            return (name) => {
+              app.addItemModal.price = app.items[app.addItemModal.name].price
             }
         },
         // addConsole: function() {
@@ -207,11 +219,13 @@ var app = new Vue({
         },
         addItemInConsole: function() {
             return () => {
+                        app.addItemModal.name = app.items[app.addItemModal.name] ? app.items[app.addItemModal.name].label : app.addItemModal.name
                         app.consoleList[app.addItemModal.selectedConsoleId].items.push({name:app.addItemModal.name, price:Number(app.addItemModal.price)})
                         localStorage.setItem(app.addItemModal.selectedConsoleId, JSON.stringify(app.consoleList[app.addItemModal.selectedConsoleId]))
                         setTimeout(() => {
                             app.addItemModal.name = ""
                             app.addItemModal.price = ""
+                            app.addItemModal.toggle = false
                             }, 500);
                         
             }
@@ -242,6 +256,8 @@ for (let i = 0; i <= 3; i++) {
     }
 }
 app.loglist = JSON.parse(localStorage.getItem('logs')) ? JSON.parse(localStorage.getItem('logs')) : []
+app.debtorlist = JSON.parse(localStorage.getItem('debtorlist')) ? JSON.parse(localStorage.getItem('debtorlist')) : []
+
 setTimeout(() => {
     app.$forceUpdate()
     }, 1000);
@@ -263,6 +279,26 @@ function secondsToHms(d, id) {
         }
     }
 }
+app.not = localStorage.getItem("not") ? localStorage.getItem("not") : false
+if (!app.not) {
+        Notification.requestPermission();
+        app.not = true
+        localStorage.setItem("not",app.not)
+}
+function showNotification(i) {
+
+      const options = {
+        body: 'بازیش تموم شد بیا',
+        dir: 'ltr',
+        vibrate: true
+      };
+      const notification = new Notification('Notification', options);
+
+      notification.onclick = function () {
+        window.open('https://game-timer-five.vercel.app');
+      };
+    app.consoleList[i].priceMax = 0
+  }
 
 setInterval(function() {
     for (let i = 0; i < app.consoleList.length; i++) {
@@ -286,6 +322,9 @@ setInterval(function() {
               
                 app.consoleList[i].gamePrice = Math.floor(hour * selectedConsole[Number(app.consoleList[i].count)])
                 app.consoleList[i].price = allPrice
+                if (app.consoleList[i].gamePrice >= app.consoleList[i].priceMax && app.consoleList[i].priceMax) {
+                    showNotification(i)
+                }
                 localStorage.setItem(i, JSON.stringify(app.consoleList[i]))
             }
             setTimeout(() => {

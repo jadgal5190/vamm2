@@ -108,6 +108,9 @@ html {
     font-family: iranyekanbold;
     color: red;
 }
+.timer {
+    line-height: 0;
+}
 
 .cfooter {
     display: flex;
@@ -141,6 +144,9 @@ html {
 
 .btn--primary {
     background-color: #6b18ea;
+}
+.btn--success {
+    background-color: #4BB543;
 }
 
 .btn--secondary {
