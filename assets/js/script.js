@@ -285,19 +285,9 @@ if (!app.not) {
         app.not = true
         localStorage.setItem("not",app.not)
 }
-function showNotification() {
-    //if(document.visibilityState === "visible") {
-      //  return;
-    //   }
-    let title = "JavaScript Jeep";
-    let icon = 'https://homepages.cae.wisc.edu/~ece533/images/airplane.png';
-    let body = "Message to be displayed";
-    var notification = new Notification('Title', { body, icon });
-    notification.onclick = () => {
-         notification.close();
-         window.parent.focus();
-    }
- }
+function notifyMe() {
+    const notification = new Notification("Hi there!");
+  }
 
 setInterval(function() {
     for (let i = 0; i < app.consoleList.length; i++) {
@@ -322,7 +312,7 @@ setInterval(function() {
                 app.consoleList[i].gamePrice = Math.floor(hour * selectedConsole[Number(app.consoleList[i].count)])
                 app.consoleList[i].price = allPrice
                 if (app.consoleList[i].gamePrice >= app.consoleList[i].priceMax && app.consoleList[i].priceMax) {
-                    showNotification(i)
+                    notifyMe()
                 }
                 localStorage.setItem(i, JSON.stringify(app.consoleList[i]))
             }
