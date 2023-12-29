@@ -184,6 +184,7 @@ var app = new Vue({
                     app.consoleList[debtor.index] = debtor
                     let vak = Math.floor(new Date().getTime() / 1000) - app.consoleList[debtor.index].pauseTimer
                     app.consoleList[debtor.index].startTime += vak
+                    
                     app.showDebtors = false
                 }
             }
