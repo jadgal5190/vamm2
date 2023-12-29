@@ -325,7 +325,7 @@ setInterval(function() {
                         setTimeout(function () {
                             oscillator.stop();
                             app.consoleList[i].priceMax = 0
-                        }, 300);
+                        }, 500);
                 }
                 localStorage.setItem(i, JSON.stringify(app.consoleList[i]))
             }
