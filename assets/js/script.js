@@ -310,7 +310,17 @@ setInterval(function() {
                 app.consoleList[i].gamePrice = Math.floor(hour * selectedConsole[Number(app.consoleList[i].count)])
                 app.consoleList[i].price = allPrice
                 if (app.consoleList[i].gamePrice >= app.consoleList[i].priceMax && app.consoleList[i].priceMax) {
-                    navigator.vibrate(500);
+                        var context = new AudioContext();
+                        var oscillator = context.createOscillator();
+                        oscillator.type = "sine";
+                        oscillator.frequency.value = 800;
+                        oscillator.connect(context.destination);
+                        oscillator.start();
+                        // Beep for 500 milliseconds
+                        setTimeout(function () {
+                            oscillator.stop();
+                            app.consoleList[i].priceMax = 0
+                        }, 300);
                 }
                 localStorage.setItem(i, JSON.stringify(app.consoleList[i]))
             }
