@@ -8,13 +8,14 @@ var app = new Vue({
         nameID:0,
         items:{
          "water":{price:5000, label:"آب معدنی"},
-         "jack":{price:40000, label:"انرزی زا جک"},
-         "smoke":{price:5000, label:"سیگار ۱"},
-         "hype":{price:55000, label:"انرژی زا هایپ"},
-         "mogomogo":{price:25000, label:"موگو موگو"},
-         "zaferani":{price:25000, label:"نوشیدنی زعفران"},
-         "vitaminC":{price:25000, label:"ویتامین c"},
-         "limonade":{price:25000, label:"لیموناد"},
+         "jack":{price:45000, label:"انرزی زا جک"},
+         "smoke":{price:5000, label:"سیگار 1"},
+         "smoke2":{price:10000, label:"سیگار 2"},
+         "hype":{price:65000, label:"انرژی زا هایپ"},
+         "mogomogo":{price:30000, label:"موگو موگو"},
+         "zaferani":{price:30000, label:"نوشیدنی زعفران"},
+         "vitaminC":{price:30000, label:"ویتامین c"},
+         "limonade":{price:30000, label:"لیموناد"},
    
     },
        priceList: {
