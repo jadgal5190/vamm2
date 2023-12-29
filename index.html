@@ -19,7 +19,7 @@
             <h2>کافه گیم لئو</h2>
             <!-- <button class="btn btn--primary" @click="addConsole()">اضافه کردن کنسول</button> -->
             <button class="btn btn--primary" @click="showlogs = true">logs</button>
-            <!-- <button class="btn btn--primary" @click="showDebtors = true">Debtors</button> -->
+            <button class="btn btn--primary" @click="showDebtors = true">Debtors</button>
 
         </header>
         <div class="modal" v-show="nameModal">
@@ -45,6 +45,7 @@
                 <span>{{ debtor.date }}</span>
                 <span>{{ debtor.price }}تومان</span>
                 <span>{{ debtor.name }}</span>
+                <button class="btn btn--secondary" @click="loadDebtor(debtor)">load</button>
             </div>
         </div>
         <div class="modal" v-show="addItemModal.toggle">
@@ -96,7 +97,7 @@
                         <button class="btn btn--secondary" @click="startTimer(console.id)">شروع</button>
                         <button class="btn btn--secondary" @click="pauseTimer(console.id)">{{ console.pause ? 'ادامه' : 'وقفه' }}</button>
                         <!-- <button class="btn btn--timer" @click="resetTimer(console.id)">ریست تایمر</button> -->
-                        <!-- <button class="btn btn--timer" @click="showNameModal(console.id)">وامی لیب</button> -->
+                        <button class="btn btn--timer" @click="showNameModal(console.id)">ذخیره</button>
                         <button class="btn btn--timer" @click="cleardata(console.id)">تسویه</button>
                     </div>
                     <h4 class="cprice">{{ console.toggleTimer ? console.price : '0' }} تومان</h4>
