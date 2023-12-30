@@ -12,7 +12,7 @@ var app = new Vue({
          "smoke":{price:5000, label:"سیگار 1"},
          "smoke2":{price:10000, label:"سیگار 2"},
          "hype":{price:65000, label:"انرژی زا هایپ"},
-         "mogomogo":{price:30000, label:"موگو موگو"},
+         "mogomogo":{price:25000, label:"موگو موگو"},
          "zaferani":{price:30000, label:"نوشیدنی زعفران"},
          "vitaminC":{price:30000, label:"ویتامین c"},
          "limonade":{price:30000, label:"لیموناد"},
