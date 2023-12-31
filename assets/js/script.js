@@ -206,7 +206,7 @@ var app = new Vue({
                         app.consoleList[i].Ownername = app.nameValue
                  setTimeout(() => {
                     let now = new Date().toLocaleString("en-US")
-                    app.debtorlist.push({index:i, id:app.consoleList[i].id, count: app.consoleList[i].count, timer: app.consoleList[i].timer, toggleTimer: app.consoleList[i].toggleTimer, startTime: app.consoleList[i].startTime, timerprice: app.consoleList[i].timerprice, pause: true, pauseTimer: Math.floor(new Date().getTime() / 1000), gamePrice:app.consoleList[i].gamePrice, items:app.consoleList[i].items, consoleType:app.consoleList[i].consoleType, priceMax:app.consoleList[i].priceMax, name:app.consoleList[i].Ownername, price:app.consoleList[i].price, date:now})
+                    app.debtorlist.push({index:i, id:app.consoleList[i].id, name:app.consoleList[i].name, count: app.consoleList[i].count, timer: app.consoleList[i].timer, toggleTimer: app.consoleList[i].toggleTimer, startTime: app.consoleList[i].startTime, timerprice: app.consoleList[i].timerprice, pause: true, pauseTimer: Math.floor(new Date().getTime() / 1000), gamePrice:app.consoleList[i].gamePrice, items:app.consoleList[i].items, consoleType:app.consoleList[i].consoleType, priceMax:app.consoleList[i].priceMax, Ownername:app.consoleList[i].Ownername, price:app.consoleList[i].price, date:now})
                     localStorage.setItem('debtorlist', JSON.stringify(app.debtorlist))
                     app.nameModal = false
                     app.nameValue = ''
