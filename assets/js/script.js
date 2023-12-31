@@ -243,7 +243,7 @@ var app = new Vue({
                             app.addItemModal.name = ""
                             app.addItemModal.price = ""
                             app.addItemModal.count = 1
-                            app.addItemModal.toggle = false
+                            // app.addItemModal.toggle = false
                             
                             }, 500);
                         

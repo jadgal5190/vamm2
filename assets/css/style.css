@@ -40,7 +40,7 @@
     url('../fonts/ttf/iranyekanwebextrablack.ttf') format('truetype');
 }
 :root {
-    --color-primary: #ef246e;
+    --color-primary: #F9CA24;
     --color-white: #fff;
     --hue: 160deg;
 }
