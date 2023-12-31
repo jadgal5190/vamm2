@@ -136,8 +136,11 @@ body{
 
 .cprice {
     font-family: iranyekanbold;
-    color: rgba(0, 0, 0, 0.7);
+    color: #21E786;
     font-size: 2rem;
+}
+select{
+    max-width:5rem;
 }
 
 .btns {
