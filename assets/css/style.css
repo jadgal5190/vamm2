@@ -55,6 +55,9 @@ html {
     display: flex;
     flex-direction: column;
     direction: rtl;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 9.26%, rgba(57, 52, 52, 0.4) 51.6%, rgba(1, 1, 1, 0.4) 100%), #333F48;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .header {
@@ -101,7 +104,7 @@ html {
 }
 
 .cname {
-    color: #6b18ea;
+    color: #F9CA24;
 }
 
 .ccount {
@@ -112,6 +115,11 @@ html {
     font-size: 7rem;
     font-family: iranyekanbold;
     color: red;
+    font-size: 1.563vw;
+    background: linear-gradient(180deg, #F9CA24 0%, #FF7A00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
 }
 .timer {
     line-height: 5rem;
@@ -238,6 +246,7 @@ html {
     font-size: 14px;
     flex-shrink: 0;
     padding: 5px;
+    color: var(--color-white);
 }
 .modal{
     display: flex;
@@ -288,9 +297,30 @@ html {
     justify-content: space-between;
     font-size: 15px;
     gap: 1rem;
+    color: var(--color-white);
 }
 .mini-btn {
     width: 2rem;
     height: auto;
     cursor: pointer;
 }
+
+.form-control {
+    color: var(--color-white);
+    font-size: 15px;
+    border: 0;
+    outline: 0;
+    border-bottom: 0.0521vw solid #F9CA24;
+    padding: 0.3rem 1rem;
+    caret-color: var(--color-white);
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.form-control::selection {
+    background-color: transparent;
+    color: var(--color-primary);
+}
+
