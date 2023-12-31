@@ -39,6 +39,11 @@
     url('../fonts/woff2/iranyekanwebextrablack.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/
     url('../fonts/ttf/iranyekanwebextrablack.ttf') format('truetype');
 }
+:root {
+    --color-primary: #ef246e;
+    --color-white: #fff;
+    --hue: 160deg;
+}
 
 html {
     font-size: 62.5%;
@@ -275,4 +280,17 @@ html {
     bottom: 100px;
     font-size: 25px;
     color: red;
+}
+
+.item__counter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
+    gap: 1rem;
+}
+.mini-btn {
+    width: 2rem;
+    height: auto;
+    cursor: pointer;
 }

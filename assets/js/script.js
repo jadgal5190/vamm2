@@ -50,6 +50,7 @@ var app = new Vue({
             toggle:false,
             selectedConsoleId:1,
             selectedConsoleIndex:0,
+            count:1,
         }
     },
     computed: {
@@ -236,12 +237,14 @@ var app = new Vue({
         addItemInConsole: function() {
             return () => {
                         app.addItemModal.name = app.items[app.addItemModal.name] ? app.items[app.addItemModal.name].label : app.addItemModal.name
-                        app.consoleList[app.addItemModal.selectedConsoleId].items.push({name:app.addItemModal.name, price:Number(app.addItemModal.price)})
+                        app.consoleList[app.addItemModal.selectedConsoleId].items.push({name:app.addItemModal.name, price:Number(app.addItemModal.price), count:Number(app.addItemModal.count)})
                         localStorage.setItem(app.addItemModal.selectedConsoleId, JSON.stringify(app.consoleList[app.addItemModal.selectedConsoleId]))
                         setTimeout(() => {
                             app.addItemModal.name = ""
                             app.addItemModal.price = ""
+                            app.addItemModal.count = 1
                             app.addItemModal.toggle = false
+                            
                             }, 500);
                         
             }
@@ -318,7 +321,7 @@ setInterval(function() {
                 let hour = app.consoleList[i].timerprice / 3600
                 let ItemsPrice = 0
                 for (let d = 0; d < app.consoleList[i].items.length; d++) {
-                   ItemsPrice += Number(app.consoleList[i].items[d].price)
+                   ItemsPrice += Number(app.consoleList[i].items[d].price) * app.consoleList[i].items[d].count
                 }
                 let selectedConsole = app.priceList[app.consoleList[i].consoleType]
                 let allPrice = new Intl.NumberFormat("fa").format(Math.floor(hour * selectedConsole[Number(app.consoleList[i].count)]) + ItemsPrice)
