@@ -68,7 +68,7 @@
       </div>
         <!-- <span v-for="(iiitem, itemIndex) in consoleList[addItemModal.selectedConsoleId].items" class="basketItem"> + {{ new Intl.NumberFormat("fa").format(iiitem.price) }}ت</span> -->
       <div class="additem">
-        <select v-model="addItemModal.name" @change="changeItem()">
+        <select v-model="addItemModal.name" @change="changeItem()" class="drop-down">
             <option :value="i" v-for="(item, i) in items">{{ item.label }} - {{ item.price }}</option>
         </select>
         <input type="text" class="form-control" placeholder="نام آیتم" v-model="addItemModal.name">
@@ -92,7 +92,7 @@
                 <div class="cfooter">
                     <div class="btns">
                         <!-- <button class="btn btn--primary" @click="changeCount(console.id)">تغییر تعداد</button> -->
-                        <select @change="changeCount(console.id)" v-model="console.count">
+                        <select @change="changeCount(console.id)" v-model="console.count" class="drop-down"> 
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>

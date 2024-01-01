@@ -338,3 +338,21 @@ select{
 .btn--success::after {
     background: linear-gradient(270deg, #24f952 0%, rgb(19 255 4 / 25%) 36%);
 }
+
+.drop-down {
+    background: rgba(0, 0, 0, 0.15);
+    border: 0.1vw solid #292D32;
+    font-size: 12px;
+    border-radius: 6px;
+    color: var(--color-primary);
+    width: 48%;
+}
+
+.drop-down:focus {
+    outline: 0;
+}
+
+.drop-down * {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
