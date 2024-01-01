@@ -338,7 +338,7 @@ setInterval(function() {
                         // Beep for 500 milliseconds
                         setTimeout(function () {
                             oscillator.stop();
-                            app.consoleList[i].priceMax = 0
+                            app.consoleList[i].priceMax = ""
                         }, 500);
                 }
                 localStorage.setItem(i, JSON.stringify(app.consoleList[i]))
