@@ -161,14 +161,14 @@ select{
 }
 
 .btn--primary {
-    background-color: #6b18ea;
+    background-color: #6082B6;
 }
 .btn--success {
     background-color: #4BB543;
 }
 
 .btn--secondary {
-    background-color: #ef246e;
+    background-color: #4169E1;
 }
 
 .btn--mini {
@@ -180,7 +180,8 @@ select{
 }
 
 .btn--timer {
-    background-color: #fb6f4a;
+    background-color: var(--color-primary);
+    color: #000;
 }
 
 @media only screen and (max-width: 768px) {
@@ -329,3 +330,11 @@ select{
     color: var(--color-primary);
 }
 
+
+.btn--success::before {
+    background: #457c37;
+}
+
+.btn--success::after {
+    background: linear-gradient(270deg, #24f952 0%, rgb(19 255 4 / 25%) 36%);
+}
