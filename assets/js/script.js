@@ -210,7 +210,8 @@ var app = new Vue({
         addTime: function() {
             return () => {
                 if (app.consoleList[app.addItemModal.selectedConsoleId].toggleTimer) {
-                 app.consoleList[app.addItemModal.selectedConsoleId].startTime = (Math.floor(new Date().getTime() / 1000) - app.consoleList[app.addItemModal.selectedConsoleId].startTime) + (Number(app.addtimeValue) * 60)
+                    let time = (Math.floor(new Date().getTime() / 1000) - app.consoleList[app.addItemModal.selectedConsoleId].startTime)
+                 app.consoleList[app.addItemModal.selectedConsoleId].startTime += time + (Number(app.addtimeValue) * 60)
                  app.addtimeValue = ""
                 }
             }
