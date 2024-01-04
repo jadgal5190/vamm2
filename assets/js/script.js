@@ -6,16 +6,18 @@ var app = new Vue({
         nameModal:false,
         nameValue:"",
         nameID:0,
+        addtimeValue:"",
         items:{
          "water":{price:5000, label:"آب معدنی"},
          "jack":{price:45000, label:"انرزی زا جک"},
          "smoke":{price:5000, label:"سیگار 1"},
          "smoke2":{price:10000, label:"سیگار 2"},
          "hype":{price:65000, label:"انرژی زا هایپ"},
-         "mogomogo":{price:25000, label:"موگو موگو"},
+         "mogomogo":{price:30000, label:"موگو موگو"},
          "zaferani":{price:30000, label:"نوشیدنی زعفران"},
          "vitaminC":{price:30000, label:"ویتامین c"},
          "limonade":{price:30000, label:"لیموناد"},
+         "cace":{price:50000, label:"یک اسلایس کیک"},
    
     },
        priceList: {
@@ -112,10 +114,15 @@ var app = new Vue({
             return (id) => {
                 for (let i = 0; i < app.consoleList.length; i++) {
                     if (app.consoleList[i].id == id && app.consoleList[i].toggleTimer) {
-                        app.consoleList[i].items.push({name:"بازی "+app.consoleList[i].count+"نفره", price:Number(fixNumbers(app.consoleList[i].price))})
+                        console.log(Number(fixNumbers(app.consoleList[i].gamePrice)), app.consoleList[i].gamePrice);
+                        app.consoleList[i].items.push({name:"بازی "+app.consoleList[i].count+"نفره", price:Number(fixNumbers(app.consoleList[i].gamePrice)), count:1})
                         app.consoleList[i].startTime = 0
                         app.consoleList[i].timerprice = 0
                         app.consoleList[i].toggleTimer = false
+                        app.consoleList[i].pause = false
+                        app.consoleList[i].timer = { h: '00', m: '00', s: '00' }
+                        app.consoleList[i].date = ''
+                        app.consoleList[i].price = 0
                         localStorage.setItem(i, JSON.stringify(app.consoleList[i]))
                         setTimeout(() => {
                         app.$forceUpdate()
@@ -197,6 +204,14 @@ var app = new Vue({
                         app.addItemModal.selectedConsoleId = i
                         app.addItemModal.toggle = true
                     }
+                }
+            }
+        },
+        addTime: function() {
+            return () => {
+                if (app.consoleList[app.addItemModal.selectedConsoleId].toggleTimer) {
+                 app.consoleList[app.addItemModal.selectedConsoleId].startTime += (Number(app.addtimeValue) * 60)
+                 app.addtimeValue = ""
                 }
             }
         },
