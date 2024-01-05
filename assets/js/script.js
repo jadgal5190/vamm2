@@ -4,6 +4,8 @@ var app = new Vue({
         showlogs:false,
         showDebtors:false,
         nameModal:false,
+        dataModal:false,
+        dataValue:"",
         nameValue:"",
         nameID:0,
         addtimeValue:"",
@@ -263,6 +265,23 @@ var app = new Vue({
                             
                             }, 500);
                         
+            }
+        },
+        loadData: function() {
+            return () => {
+                app.dataModal = false
+                if (app.dataValue) {
+                app.consoleList = JSON.parse(app.dataValue)     
+                app.dataValue = "" 
+                for (let i = 0; i < app.consoleList.length; i++) {
+                    localStorage.setItem(i, JSON.stringify(app.consoleList[i]))
+                }
+                }
+            }
+        },
+        copyData: function() {
+            return () => {
+                navigator.clipboard.writeText(JSON.stringify(app.consoleList));
             }
         },
     },
