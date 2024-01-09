@@ -52,7 +52,7 @@
                 </div>
                 <div class="info">
                     <span>شماره خریدار</span>
-                    <span :href="'tel:'+items[selectedItemIndex].buyerNumber">{{ items[selectedItemIndex].buyerNumber }}</span>
+                    <a :href="'tel:'+items[selectedItemIndex].buyerNumber">{{ items[selectedItemIndex].buyerNumber }}</a>
                 </div>
                 <div class="info">
                     <span>فروشنده سند</span>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="info">
                     <span>شماره فروشنده</span>
-                    <span :href="'tel:'+items[selectedItemIndex].SellerNumber">{{ items[selectedItemIndex].SellerNumber }}</span>
+                    <a :href="'tel:'+items[selectedItemIndex].SellerNumber">{{ items[selectedItemIndex].SellerNumber }}</a>
                 </div>
                 <div class="info">
                     <span>مبلغ کل</span>
