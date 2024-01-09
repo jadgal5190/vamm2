@@ -44,7 +44,7 @@ var app = new Vue({
                 if (!app.isEdit) {
                     app.items.push(app.create)
                 }else{
-                    app.items[selectedItemIndex] = app.create
+                    app.items[app.selectedItemIndex] = app.create
                 }
                 app.createModal = false
                 localStorage.setItem("sanadItems", JSON.stringify(app.items))
