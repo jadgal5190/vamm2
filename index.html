@@ -44,7 +44,7 @@
                 </div>
                 <div class="info">
                     <span>شماره مالک سند</span>
-                    <span>{{ items[selectedItemIndex].ownerNumber }}</span>
+                    <a :href="'tel:'+items[selectedItemIndex].ownerNumber">{{ items[selectedItemIndex].ownerNumber }}</a>
                 </div>
                 <div class="info">
                     <span>خریدار سند</span>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="info">
                     <span>شماره خریدار</span>
-                    <span>{{ items[selectedItemIndex].buyerNumber }}</span>
+                    <span :href="'tel:'+items[selectedItemIndex].buyerNumber">{{ items[selectedItemIndex].buyerNumber }}</span>
                 </div>
                 <div class="info">
                     <span>فروشنده سند</span>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="info">
                     <span>شماره فروشنده</span>
-                    <span>{{ items[selectedItemIndex].SellerNumber }}</span>
+                    <span :href="'tel:'+items[selectedItemIndex].SellerNumber">{{ items[selectedItemIndex].SellerNumber }}</span>
                 </div>
                 <div class="info">
                     <span>مبلغ کل</span>
