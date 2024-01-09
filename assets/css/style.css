@@ -273,3 +273,7 @@ body{
     font-family: iranyekanbold;
 
 }
+a{
+    text-decoration: none;
+    color: #4169E1;
+}
