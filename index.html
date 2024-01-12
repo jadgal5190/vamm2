@@ -42,9 +42,17 @@
                     <span>مالک سند</span>
                     <span>{{ items[selectedItemIndex].ownerName }}</span>
                 </div>
-                <div class="info">
+<!--                 <div class="info">
                     <span>شماره مالک سند</span>
                     <a :href="'tel:'+items[selectedItemIndex].ownerNumber">{{ items[selectedItemIndex].ownerNumber }}</a>
+                </div> -->
+                  <div class="info">
+                    <span>فروشنده سند</span>
+                    <span>{{ items[selectedItemIndex].SellerName }}</span>
+                </div>
+                <div class="info">
+                    <span>شماره فروشنده</span>
+                    <a :href="'tel:'+items[selectedItemIndex].SellerNumber">{{ items[selectedItemIndex].SellerNumber }}</a>
                 </div>
                 <div class="info">
                     <span>خریدار سند</span>
@@ -54,14 +62,7 @@
                     <span>شماره خریدار</span>
                     <a :href="'tel:'+items[selectedItemIndex].buyerNumber">{{ items[selectedItemIndex].buyerNumber }}</a>
                 </div>
-                <div class="info">
-                    <span>فروشنده سند</span>
-                    <span>{{ items[selectedItemIndex].SellerName }}</span>
-                </div>
-                <div class="info">
-                    <span>شماره فروشنده</span>
-                    <a :href="'tel:'+items[selectedItemIndex].SellerNumber">{{ items[selectedItemIndex].SellerNumber }}</a>
-                </div>
+              
                 <div class="info">
                     <span>مبلغ کل</span>
                     <h2 class="price">{{ items[selectedItemIndex].allprice }} تومان</h2>
@@ -74,10 +75,10 @@
                     <span>بیعانه</span>
                     <h2 class="price">{{ items[selectedItemIndex].bianeprice }} تومان</h2>
                 </div>
-                <div class="info">
+<!--                 <div class="info">
                     <span>مبلغ باقیمانده</span>
                     <h2 class="price">{{ items[selectedItemIndex].restprice }} تومان</h2>
-                </div>
+                </div> -->
                 <div class="info">
                     <button class="btn btn--mini" @dblclick="deleteItem()">delete</button>
                     <button class="btn btn--primary" @click="editItem()">edit</button>
@@ -91,9 +92,17 @@
                     <span>مالک سند</span>
                     <input type="text" class="form-control" v-model="create.ownerName">
                 </div>
-                <div class="info">
+<!--                 <div class="info">
                     <span>شماره مالک سند</span>
                     <input type="text" class="form-control" v-model="create.ownerNumber">
+                </div> -->
+                  <div class="info">
+                    <span>فروشنده سند</span>
+                    <input type="text" class="form-control" v-model="create.SellerName">
+                </div>
+                <div class="info">
+                    <span>شماره فروشنده</span>
+                    <input type="text" class="form-control" v-model="create.SellerNumber">
                 </div>
                 <div class="info">
                     <span>خریدار سند</span>
@@ -103,14 +112,7 @@
                     <span>شماره خریدار</span>
                     <input type="text" class="form-control" v-model="create.buyerNumber">
                 </div>
-                <div class="info">
-                    <span>فروشنده سند</span>
-                    <input type="text" class="form-control" v-model="create.SellerName">
-                </div>
-                <div class="info">
-                    <span>شماره فروشنده</span>
-                    <input type="text" class="form-control" v-model="create.SellerNumber">
-                </div>
+              
                 <div class="info">
                     <span>مبلغ کل</span>
                     <input type="text" class="form-control" v-model="create.allprice">
@@ -123,10 +125,10 @@
                     <span>بیعانه</span>
                     <input type="text" class="form-control" v-model="create.bianeprice">
                 </div>
-                <div class="info">
+<!--                 <div class="info">
                     <span>مبلغ باقیمانده</span>
                     <input type="text" class="form-control" v-model="create.restprice">
-                </div>
+                </div> -->
                 <div class="info">
                     <button class="btn btn--success" @click="saveItems()">save</button>
                 </div>
